@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getwidget/getwidget.dart';
 
 
 
@@ -11,42 +12,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  GFListTile _buildCoolCard(String ctitle, IconData cicon, String shortdes ){
+    return GFListTile(
+        // https://docs.getwidget.dev/gf-tile/
+        avatar:GFAvatar(),
+      titleText:ctitle,
+      subTitleText:shortdes,
+      icon: Icon(cicon)
+    );
+  }
 
-
-  Column _buildCard(String ctitle, IconData cicon, String shortdes ){
-
-    return
-      // Center(
-      // child: Card(
-      //   child:
-     Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-             ListTile(
-              leading: Icon(cicon),
-              title: Text(ctitle),
-              subtitle: Text(shortdes),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                  child: const Text('Learn More'),
-                  onPressed: () {/* ... */},
-                ),
-                const SizedBox(width: 8),
-                // TextButton(
-                //   child: const Text('Whatsapp'),
-                //   onPressed: () {/* ... */},
-                // ),
-                // const SizedBox(width: 8),
-              ],
-            ),
-          ],
-        );
-    //   ),
-    // );
-   }
 
    Column _buildButtonColumn(Color color, IconData icon, String label) {
      return Column(
@@ -106,9 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
       ],
     );
-    Widget ramdomCardSection = _buildCard("How To make a Pizza", Icons.local_pizza, "I will teach you  how to make a pizza in 3 days.");
-    Widget ramdomCardSection1 = _buildCard("How To make a bread", Icons.breakfast_dining, "I will teach you  how to make a bread in 3 days.");
-
 
     return Scaffold(
       body: SafeArea(
@@ -138,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ElevatedButton(
                     child: Text('Trening'),
-                    onPressed: () {},
+                    onPressed: null,
                   ),
                   ElevatedButton(
                     child: Text('My Lessons'),
@@ -189,11 +161,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
               ],
             ),
-            ramdomCardSection,
-            ramdomCardSection1,
-            ramdomCardSection1,
-            ramdomCardSection1,
-            ramdomCardSection1,
+            _buildCoolCard("How To make a Pizza", Icons.local_pizza, "I will teach you  how to make a pizza in 3 days."),
+            _buildCoolCard("How To make a Pizza", Icons.local_pizza, "I will teach you  how to make a pizza in 3 days."),
+            _buildCoolCard("How To make a Pizza", Icons.local_pizza, "I will teach you  how to make a pizza in 3 days."),
 
           ],
         ),
