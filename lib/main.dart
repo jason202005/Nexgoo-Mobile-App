@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nexgoo/screens/newdetailpage.dart';
 import '../screens/home_screen.dart';
 
 void main() {
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      // home: const HomeScreen(),
+      home: const DetailPage(),
+
     );
   }
 }

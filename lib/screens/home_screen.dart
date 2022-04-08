@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {},
                   ),
                   ElevatedButton(
-                    child: Text('Trening'),
+                    child: Text('Trending'),
                     onPressed: null,
                   ),
                   ElevatedButton(
