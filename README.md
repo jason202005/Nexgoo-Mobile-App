@@ -1,6 +1,22 @@
 # nexgoo
 
-A new Flutter project.
+# Todo list
+##Done
+Basic Homescreen UI
+Basic Detail Page UI
+
+##Working on it
+Category page
+
+##Pending
+my lessosn page
+create post page
+profile page
+search page 
+login page
+
+
+
 
 ## Getting Started
 
