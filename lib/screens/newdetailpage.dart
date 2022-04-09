@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:flutter_launch/flutter_launch.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -11,6 +12,107 @@ class DetailPage extends StatefulWidget {
 
 
 class _DetailPage extends State<DetailPage> {
+  bool err = false;
+  String msgErr = '';
+  void whatsAppOpen(String phoneNumber, String msg) async {
+    bool whatsapp = await FlutterLaunch.hasApp(name: "whatsapp");
+
+    if (whatsapp) {
+      await FlutterLaunch.launchWhatsapp(
+          phone: phoneNumber, message: msg);
+    } else {
+      setState(() {
+        err = false;
+        msgErr = '';
+      });
+    }
+  }
+
+  Padding _buildtextSection (String text) {
+    return
+      Padding(
+        padding: const EdgeInsets.all(32),
+        child: Text(
+          text,
+          softWrap: true,
+        ),
+      );
+  }
+  ElevatedButtonTheme _buildButtonSection (String phoneNumber, String msg){
+    return  ElevatedButtonTheme(
+      data: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(minimumSize: Size(170,45))) ,
+      child: ButtonBar(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          ElevatedButton(
+            child: const Text('Back'),
+            onPressed: () {},
+          ),
+          Center(
+              child: ElevatedButton(
+
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      "Whatsapp",
+                    ),
+                    err ? Text(msgErr) : const Text('')
+                  ],
+                ),
+                onPressed: () {
+                  whatsAppOpen(phoneNumber, msg);
+                },
+              )),
+
+        ],
+      ),
+    );
+  }
+
+
+  Container _buildSection(String ctitle, String description, String rating ){
+    return Container(
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          Expanded(
+            /*1*/
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /*2*/
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child:  Text(
+                    ctitle,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Text(
+                  description,
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          /*3*/
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          Text(rating),
+        ],
+      ),
+
+    );
+  }
+
+
   final List<String> imageList = [
     "https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg",
     "https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg",
@@ -29,12 +131,14 @@ class _DetailPage extends State<DetailPage> {
           child: ListView(
             children: <Widget>[
               GFCarousel(
+
+                hasPagination: true,
                 items: imageList.map(
                       (url) {
                     return Container(
-                      margin: EdgeInsets.all(8.0),
+                      margin: const EdgeInsets.all(8.0),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                         child: Image.network(
                             url,
                             fit: BoxFit.cover,
@@ -50,7 +154,14 @@ class _DetailPage extends State<DetailPage> {
                   });
                 },
               ),
-
+              _buildSection("How to make a Pizza?", "I will teach you how to make a pizza in 3 days", "4"),
+              _buildtextSection( 'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+                  'Alps. Situated 1,578 meters above sea level, it is one of the '
+                  'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+                  'half-hour walk through pastures and pine forest, leads you to the '
+                  'lake, which warms to 20 degrees Celsius in the summer. Activities '
+                  'enjoyed here include rowing, and riding the summer toboggan run.'),
+              _buildButtonSection("+85294380780", "hi")
             ] ,
           ),
     ),
