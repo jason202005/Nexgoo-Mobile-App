@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:nexgoo/screens/category.dart';
 import 'package:nexgoo/screens/newdetailpage.dart';
 import '../screens/home_screen.dart';
 
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const HomeScreen(),
-      home: const DetailPage(),
-
+      // home: const DetailPage(),
+      home: const Category(),
     );
   }
 }

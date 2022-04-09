@@ -105,15 +105,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   ElevatedButton(
-                    child: Text('Discover'),
+                    child: const Text('Discover'),
                     onPressed: () {},
                   ),
-                  ElevatedButton(
+                  const ElevatedButton(
                     child: Text('Trending'),
                     onPressed: null,
                   ),
                   ElevatedButton(
-                    child: Text('My Lessons'),
+                    child: const Text('My Lessons'),
                     onPressed: () {},
                   ),
                 ],
@@ -135,10 +135,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
             Row(
               children: <Widget>[
-                Expanded(
+                const Expanded(
                   flex: 2,
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Text(
                     'Learning',
                     style: TextStyle(
@@ -152,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 100,
                   width: 50,
                 ),
-                Expanded(
+                const Expanded(
                     child: Text(
                       'View more',
                       style: TextStyle(
