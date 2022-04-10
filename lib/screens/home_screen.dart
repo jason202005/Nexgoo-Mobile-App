@@ -83,6 +83,20 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     return Scaffold(
+
+      appBar: AppBar(
+        leading: Icon(Icons.account_circle_rounded),
+        title: Text("Nexgoo"),
+        actions: [
+          // Container(
+          //   width: 30,
+          //   child: Image.asset(
+          //     'images/lake.jpeg',
+          //   ),
+          // ),
+          Icon(Icons.more_vert),
+        ],
+      ),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(vertical: 30.0),

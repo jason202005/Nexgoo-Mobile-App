@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const HomeScreen(),
+      home: const HomeScreen(),
       // home: const DetailPage(),
-      home: const Category(),
+      // home: const Category(),
     );
   }
 }

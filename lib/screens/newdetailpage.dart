@@ -128,7 +128,17 @@ class _DetailPage extends State<DetailPage> {
     return
       Scaffold(
         appBar: AppBar(
+          leading: Icon(Icons.account_circle_rounded),
           title: Text("Nexgoo"),
+          actions: [
+            // Container(
+            //   width: 30,
+            //   child: Image.asset(
+            //     'images/lake.jpeg',
+            //   ),
+            // ),
+            Icon(Icons.more_vert),
+          ],
         ),
 
           body: SafeArea(
