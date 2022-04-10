@@ -42,7 +42,7 @@ class _DetailPage extends State<DetailPage> {
     return  ElevatedButtonTheme(
       data: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(minimumSize: Size(170,45))) ,
       child: ButtonBar(
-        mainAxisSize: MainAxisSize.max,
+        // mainAxisSize: MainAxisSize.max,
         children: [
           ElevatedButton(
             child: const Text('Back'),
@@ -127,9 +127,16 @@ class _DetailPage extends State<DetailPage> {
     // TODO: implement build
     return
       Scaffold(
+        appBar: AppBar(
+          title: Text("Nexgoo"),
+        ),
+
           body: SafeArea(
+
           child: ListView(
+
             children: <Widget>[
+              SizedBox(height: 50.0),
               GFCarousel(
 
                 hasPagination: true,
@@ -161,10 +168,62 @@ class _DetailPage extends State<DetailPage> {
                   'half-hour walk through pastures and pine forest, leads you to the '
                   'lake, which warms to 20 degrees Celsius in the summer. Activities '
                   'enjoyed here include rowing, and riding the summer toboggan run.'),
-              _buildButtonSection("+85294380780", "hi")
+
+              // _buildButtonSection("+85294380780", "hi")
             ] ,
           ),
+
     ),
+
+        bottomNavigationBar: Row(
+          children: [
+            Material(
+              color: const Color(0xff4696EC),
+              child: InkWell(
+                onTap: () {
+                  //print('called on tap');
+                },
+                child: const SizedBox(
+                  height: kToolbarHeight,
+                  width: 100,
+                  child: Center(
+                    child: Text(
+                      'Back',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                          color:Color(0xffFAFAFA)
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Material(
+                color: const Color(0xff2CB343),
+                child: InkWell(
+                  onTap: () {
+                    //print('called on tap');
+                  },
+                  child: const SizedBox(
+                    height: kToolbarHeight,
+                    width: double.infinity,
+                    child: Center(
+                      child: Text(
+                        'Whatsapp',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                            color:Color(0xffFAFAFA)
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       );
 
   }

@@ -1,4 +1,5 @@
 import 'package:english_words/english_words.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -17,6 +18,7 @@ class _CatogaryState extends State<Category> {
       boxFit: BoxFit.cover,
       titlePosition: GFPosition.start,
       image: Image.asset(
+
         imageurl,
         height: MediaQuery.of(context).size.height * 0.2,
         width: MediaQuery.of(context).size.width ,
@@ -40,55 +42,79 @@ class _CatogaryState extends State<Category> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Nexgoo"),
+      ),
+    //   body:Container(
+    //       child: Column(
+    //         crossAxisAlignment: CrossAxisAlignment.start,
+    //         children: [
+    //           Text("Top"),
+    //           Expanded(
+    //             child: Row(
+    //               children: [
+    //                 Expanded(
+    //                   child: GridView.builder(
+    //                     scrollDirection: Axis.horizontal,
+    //                     itemCount: 10,
+    //                     gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+    //                         crossAxisCount: 2),
+    //                     itemBuilder: (BuildContext context, int index) {
+    //                       return Text(index.toString());
+    //                     },
+    //                   ),
+    //                 )
+    //               ],
+    //             ),
+    //           ),
+    //           Text("Trending"),
+    //           Expanded(
+    //             child: Row(
+    //               children: [
+    //                 Expanded(
+    //                   child: GridView.builder(
+    //                     scrollDirection: Axis.horizontal,
+    //                     itemCount: 10,
+    //                     gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+    //                         crossAxisCount: 2),
+    //                     itemBuilder: (BuildContext context, int index) {
+    //                       return Text(index.toString());
+    //                     },
+    //                   ),
+    //                 )
+    //               ],
+    //             ),
+    //           ),
+    //         ],
+    //       )),
+    // );
+
       body: SafeArea(
+
         child: GridView.count(
           primary: false,
           padding: const EdgeInsets.all(0),
           crossAxisSpacing: 0,
           mainAxisSpacing: 0,
           crossAxisCount: 2,
-          childAspectRatio: (0.26 / .405),
+          childAspectRatio: (0.273 / .40),
           children: <Widget>[
-
             _buildGFCard("images/lake.jpeg", "images/lake.jpeg", "How to make a Pizza?", "hi","I will teach you how to make a pizza in 3 days"),
             _buildGFCard("images/lake.jpeg", "images/lake.jpeg", "How to make a Pizza?", "hi","I will teach you how to make a pizza in 3 days"),
             _buildGFCard("images/lake.jpeg", "images/lake.jpeg", "How to make a Pizza?", "hi","I will teach you how to make a pizza in 3 days"),
             _buildGFCard("images/lake.jpeg", "images/lake.jpeg", "How to make a Pizza?", "hi","I will teach you how to make a pizza in 3 days"),
             _buildGFCard("images/lake.jpeg", "images/lake.jpeg", "How to make a Pizza?", "hi","I will teach you how to make a pizza in 3 days"),
-
-
-            // Container(
-            //   padding: const EdgeInsets.all(8),
-            //   child: const Text("He'd have you all unravel at the"),
-            //   color: Colors.teal[100],
-            // ),
-            // Container(
-            //   padding: const EdgeInsets.all(8),
-            //   child: const Text('Heed not the rabble'),
-            //   color: Colors.teal[200],
-            // ),
-            // Container(
-            //   padding: const EdgeInsets.all(8),
-            //   child: const Text('Sound of screams but the'),
-            //   color: Colors.teal[300],
-            // ),
-            // Container(
-            //   padding: const EdgeInsets.all(8),
-            //   child: const Text('Who scream'),
-            //   color: Colors.teal[400],
-            // ),
-            // Container(
-            //   padding: const EdgeInsets.all(8),
-            //   child: const Text('Revolution is coming...'),
-            //   color: Colors.teal[500],
-            // ),
-            // Container(
-            //   padding: const EdgeInsets.all(8),
-            //   child: const Text('Revolution, they...'),
-            //   color: Colors.teal[600],
-            // ),
           ],
-        )
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: RaisedButton(
+          onPressed: () {},
+          color: Colors.blue,
+          textColor: Colors.white,
+          child: Text('Back'),
+        ),
       ),
     );
   }
