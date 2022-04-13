@@ -44,7 +44,7 @@ class _CatogaryState extends State<Category> {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.account_circle_rounded),
-        title: Text("Nexgoo"),
+        title: Text("Food"),
         actions: [
           // Container(
           //   width: 30,

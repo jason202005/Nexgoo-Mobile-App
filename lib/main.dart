@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nexgoo/screens/category.dart';
+import 'package:nexgoo/screens/my_lesson.dart';
 import 'package:nexgoo/screens/newdetailpage.dart';
 import '../screens/home_screen.dart';
 
@@ -22,9 +23,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      // home: const HomeScreen(),
       // home: const DetailPage(),
       // home: const Category(),
+      home: const MyLesson(),
     );
   }
 }
